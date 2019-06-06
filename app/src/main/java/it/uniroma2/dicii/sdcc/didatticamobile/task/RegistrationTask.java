@@ -39,6 +39,7 @@ public class RegistrationTask  extends AsyncTask<String, Void, Void> {
         registrationActivity.findViewById(R.id.etUsernameRegistration).setVisibility(View.GONE);
         registrationActivity.findViewById(R.id.etPasswordRegistration).setVisibility(View.GONE);
         registrationActivity.findViewById(R.id.btnRegistrationRegistration).setVisibility(View.GONE);
+        registrationActivity.findViewById(R.id.etMailRegistration).setVisibility(View.GONE);
         registrationActivity.findViewById(R.id.pbLoadingRegistration).setVisibility(View.VISIBLE);
 
     }
@@ -54,7 +55,7 @@ public class RegistrationTask  extends AsyncTask<String, Void, Void> {
             /* The interaction with the persistence layer is delegated to an UserDao object*/
             UserDaoFactory userDaoFactory = UserDaoFactory.getInstance();
             UserDao userDao = userDaoFactory.createUserDao();
-            User user = new User(strings[0], strings[1], strings[2], strings[3]);
+            User user = new User(strings[0], strings[1], strings[2], strings[3], strings[5]);
             userDao.register(user, strings[4]);
             return null;
         } catch (Exception e) {
@@ -77,6 +78,7 @@ public class RegistrationTask  extends AsyncTask<String, Void, Void> {
             registrationActivity.findViewById(R.id.etUsernameRegistration).setVisibility(View.VISIBLE);
             registrationActivity.findViewById(R.id.etPasswordRegistration).setVisibility(View.VISIBLE);
             registrationActivity.findViewById(R.id.btnRegistrationRegistration).setVisibility(View.VISIBLE);
+            registrationActivity.findViewById(R.id.etMailRegistration).setVisibility(View.VISIBLE);
             registrationActivity.findViewById(R.id.pbLoadingRegistration).setVisibility(View.GONE);
         } else {
             // If the registration succeeds an activity for confirm is shown to the user.

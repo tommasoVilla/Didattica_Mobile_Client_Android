@@ -233,7 +233,8 @@ public class CourseDaoREST implements CourseDao {
     }
 
     @Override
-    public void removeStudentFromCourse(String courseId, String studentUsername, String token) throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException {
+    public void removeStudentFromCourse(String courseId, String studentUsername, String token)
+            throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException {
         try {
             AppConfiguration appConfiguration = AppConfiguration.getInstance();
 

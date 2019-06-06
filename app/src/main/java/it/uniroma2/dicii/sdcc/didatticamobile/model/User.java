@@ -10,22 +10,25 @@ public class User {
     private String username;
     private String password;
     private String type;
+    private String mail;
 
     public User() {}
 
-    public User(String name, String surname, String username, String password, String type) {
+    public User(String name, String surname, String username, String password, String type, String mail) {
         this.name = name;
         this.surname = surname;
         this.username = username;
         this.password = password;
         this.type = type;
+        this.mail = mail;
     }
 
-    public User(String name, String surname, String username, String password) {
+    public User(String name, String surname, String username, String password, String mail) {
         this.name = name;
         this.surname = surname;
         this.username = username;
         this.password = password;
+        this.mail = mail;
     }
 
     public String getName() {
@@ -65,4 +68,8 @@ public class User {
     public void setType(String type) {
         this.type = type;
     }
+
+    public String getMail() { return mail; }
+
+    public void setMail(String mail) { this.mail = mail; }
 }

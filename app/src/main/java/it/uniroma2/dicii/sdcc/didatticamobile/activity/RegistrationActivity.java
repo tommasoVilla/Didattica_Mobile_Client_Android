@@ -18,6 +18,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText etFiscalCode;
     private EditText etUsername;
     private EditText etPassword;
+    private EditText etMail;
 
     private class EventListener implements View.OnClickListener{
 
@@ -44,20 +45,22 @@ public class RegistrationActivity extends AppCompatActivity {
             String fiscalCode = etFiscalCode.getText().toString();
             String username = etUsername.getText().toString();
             String password = etPassword.getText().toString();
+            String mail = etMail.getText().toString();
 
             /* Check the correctness of the given parameters from a format point of view */
-            Boolean isCorrectInput = checkParameter(name, surname, fiscalCode, username, password);
+            Boolean isCorrectInput = checkParameter(name, surname, fiscalCode, username, password, mail);
             if (!isCorrectInput){
                 return;
             }
             /* Launch the task that makes the user registration request to the server*/
             RegistrationTask registrationTask = new RegistrationTask(context);
-            registrationTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, name, surname, username, password, fiscalCode);
+            registrationTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, name, surname, username, password, fiscalCode, mail);
 
 
         }
 
-        private Boolean checkParameter(String name, String surname, String fiscalCode, String username, String password) {
+        private Boolean checkParameter(String name, String surname, String fiscalCode,
+                                       String username, String password, String mail) {
 
             if (surname.trim().equals("") || fiscalCode.trim().equals("") ||
                     username.trim().equals("") || password.trim().equals("")){
@@ -76,6 +79,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
             if (!surname.matches("[a-zA-Z]+")|| !name.matches("[a-zA-Z]+")){
                 Toast.makeText(this.context, R.string.toastNameNotValidRegistration_text, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            if(!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches())
+            {
+                Toast.makeText(this.context, R.string.InsertValidMail_message, Toast.LENGTH_SHORT).show();
                 return false;
             }
 
@@ -98,6 +107,7 @@ public class RegistrationActivity extends AppCompatActivity {
         etFiscalCode = findViewById(R.id.etFiscalCodeRegistration);
         etUsername = findViewById(R.id.etUsernameRegistration);
         etPassword = findViewById(R.id.etPasswordRegistration);
+        etMail = findViewById(R.id.etMailRegistration);
         Button btnRegistration = findViewById(R.id.btnRegistrationRegistration);
         
         EventListener eventListener = new EventListener(this);

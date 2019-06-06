@@ -32,7 +32,6 @@ public class CourseSubscriptionTask extends AsyncTask<String, Void, Void> {
     @Override
     protected void onPreExecute() {
         courseDetailActivity.findViewById(R.id.pbLoadingCourseDetail).setVisibility(View.VISIBLE);
-        courseDetailActivity.findViewById(R.id.tvCourseDetailNameLabel).setVisibility(View.GONE);
         courseDetailActivity.findViewById(R.id.tvCourseDetailName).setVisibility(View.GONE);
         courseDetailActivity.findViewById(R.id.tvCourseDetailDepartmentLabel).setVisibility(View.GONE);
         courseDetailActivity.findViewById(R.id.tvCourseDetailDepartment).setVisibility(View.GONE);
@@ -49,6 +48,7 @@ public class CourseSubscriptionTask extends AsyncTask<String, Void, Void> {
         courseDetailActivity.findViewById(R.id.tvCourseDetailSchedule2).setVisibility(View.GONE);
         courseDetailActivity.findViewById(R.id.tvCourseDetailSchedule3).setVisibility(View.GONE);
         courseDetailActivity.findViewById(R.id.btnCourseDetailActionOnCourse).setVisibility(View.GONE);
+        courseDetailActivity.findViewById(R.id.btnCourseDetailExams).setVisibility(View.GONE);
     }
 
     @Override
@@ -77,7 +77,6 @@ public class CourseSubscriptionTask extends AsyncTask<String, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         courseDetailActivity.findViewById(R.id.pbLoadingCourseDetail).setVisibility(View.GONE);
-        courseDetailActivity.findViewById(R.id.tvCourseDetailNameLabel).setVisibility(View.VISIBLE);
         courseDetailActivity.findViewById(R.id.tvCourseDetailName).setVisibility(View.VISIBLE);
         courseDetailActivity.findViewById(R.id.tvCourseDetailDepartmentLabel).setVisibility(View.VISIBLE);
         courseDetailActivity.findViewById(R.id.tvCourseDetailDepartment).setVisibility(View.VISIBLE);
@@ -94,6 +93,8 @@ public class CourseSubscriptionTask extends AsyncTask<String, Void, Void> {
         courseDetailActivity.findViewById(R.id.tvCourseDetailSchedule2).setVisibility(View.VISIBLE);
         courseDetailActivity.findViewById(R.id.tvCourseDetailSchedule3).setVisibility(View.VISIBLE);
         courseDetailActivity.findViewById(R.id.btnCourseDetailActionOnCourse).setVisibility(View.VISIBLE);
+        courseDetailActivity.findViewById(R.id.btnCourseDetailExams).setVisibility(View.VISIBLE);
+
         if (thrownException != null) {
             ErrorHandler errorHandler = new ErrorHandler(courseDetailActivity);
             errorHandler.show(thrownException);

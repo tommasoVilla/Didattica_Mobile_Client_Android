@@ -43,6 +43,7 @@ public class UserDaoREST implements UserDao {
             jsonObject.put("name", user.getName());
             jsonObject.put("surname", user.getSurname());
             jsonObject.put("fiscalCode", fiscalCode);
+            jsonObject.put("mail", user.getMail());
             String jsonString = jsonObject.toString();
 
             // Make the POST request of registration to the server

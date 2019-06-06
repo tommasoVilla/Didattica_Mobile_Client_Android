@@ -94,4 +94,5 @@
     <string name="tvTeachingMaterialFor">Materiale Didattico per</string>
     <string name="tvNoMaterialToShowForCourse_text">Nessun file presente per il corso selezionato</string>
     <string name="notVisualizableElementByBrowser_message">Elemento non visualizzabile dal Browser</string>
+    <string name="InsertValidMail_message">Inserisci una mail valida</string>
 </resources>
