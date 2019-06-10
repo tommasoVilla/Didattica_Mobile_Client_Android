@@ -238,7 +238,7 @@ public class CourseDaoREST implements CourseDao {
         try {
             AppConfiguration appConfiguration = AppConfiguration.getInstance();
 
-            // Build the query used to add the course to the student
+            // Build the query used to remove the student from the course
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append(appConfiguration.readProperty("apigateway_address"));
             stringBuilder.append(appConfiguration.readProperty("application_url"));
@@ -272,6 +272,51 @@ public class CourseDaoREST implements CourseDao {
                     throw new UnexpectedServerResponseException();
             }
         } catch (ParserException | IOException | UnexpectedServerResponseException e) {
+            throw new CourseDaoException(e.getMessage(), e.getCause());
+        }
+    }
+
+    @Override
+    public void sendCourseNotification(String courseId, String notificationMessage, String token) throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException {
+        try {
+            AppConfiguration appConfiguration = AppConfiguration.getInstance();
+
+            // Build the query used to add the course to the student
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(appConfiguration.readProperty("apigateway_address"));
+            stringBuilder.append(appConfiguration.readProperty("application_url"));
+            stringBuilder.append("notification/course/");
+            stringBuilder.append(courseId);
+            String query = stringBuilder.toString();
+            // Build the body of the request, containing the message of the notification
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("message", notificationMessage);
+            String jsonString = jsonObject.toString();
+
+            // Make the POST request to the backend
+            HttpURLConnection connection = ConnectionHelper.sendPostWithToken(query, jsonString, token);
+
+            // Checking the response code. Upon failure, an ad hoc exception is thrown
+            int responseCode = connection.getResponseCode();
+            switch (responseCode) {
+                case HttpURLConnection.HTTP_OK:
+                    return;
+                case HttpURLConnection.HTTP_UNAUTHORIZED:
+                    JSONParser jsonParser = new JSONParser();
+                    // If the access token is expired the user will be asked to redo the login
+                    try (InputStream inputStream = connection.getErrorStream()) {
+                        ErrorResponse errorResponse = (ErrorResponse) jsonParser.fromStreamToObject(inputStream, ErrorResponse.class);
+                        if (errorResponse.getError().equals("Expired token")) {
+                            throw new ExpiredTokenException();
+                        }
+                        throw new UnexpectedServerResponseException();
+                    }
+                case HttpURLConnection.HTTP_UNAVAILABLE:
+                    throw new TemporaryUnavailableException();
+                default:
+                    throw new UnexpectedServerResponseException();
+            }
+        } catch (ParserException | IOException | JSONException | UnexpectedServerResponseException e) {
             throw new CourseDaoException(e.getMessage(), e.getCause());
         }
     }

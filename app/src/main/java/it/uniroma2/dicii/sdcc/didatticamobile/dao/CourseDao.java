@@ -45,4 +45,7 @@ public interface CourseDao {
     * The operation can succeed only providing a valid token.
     * */
     void removeStudentFromCourse(String courseId, String studentUsername, String token) throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException;
+
+
+    void sendCourseNotification(String courseId, String notificationMessage, String token) throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException;
 }

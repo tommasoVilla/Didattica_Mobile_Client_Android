@@ -39,9 +39,20 @@ public class CourseDetailActivity extends AppCompatActivity {
                 case R.id.btnCourseDetailExams:
                     viewExams();
                     break;
+                case R.id.btnCourseDetailSendNotification:
+                    gotoSendNotificationView();
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void gotoSendNotificationView(){
+            Intent intent = new Intent(activity, CourseNotificationActivity.class);
+            CourseParcelable courseParcelable = getIntent().getParcelableExtra("course_to_show");
+            intent.putExtra("course_id", courseParcelable.getId());
+            intent.putExtra("course_name", courseParcelable.getName());
+            activity.startActivity(intent);
         }
 
         private void viewExams() {
@@ -95,6 +106,11 @@ public class CourseDetailActivity extends AppCompatActivity {
         btnExams.setOnClickListener(eventListener);
         if (userType.equals("teacher")) {
             btnActionOnCourse.setVisibility(View.GONE);
+        }
+        Button btnSendNotification = findViewById(R.id.btnCourseDetailSendNotification);
+        btnSendNotification.setOnClickListener(eventListener);
+        if (userType.equals("student")) {
+            btnSendNotification.setVisibility(View.GONE);
         }
         // The button functionality depends on subscription status
         String subscriptionStatus = getIntent().getStringExtra("subscription");

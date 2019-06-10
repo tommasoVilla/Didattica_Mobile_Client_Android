@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCourseDetailExams"
+        app:layout_constraintBottom_toTopOf="@+id/btnCourseDetailSendNotification"
         app:layout_constraintEnd_toStartOf="@+id/guideline35"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline34"
@@ -227,6 +227,20 @@
         android:text="@string/btnCourseDetailExams_text"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/btnCourseDetailActionOnCourse"
+        app:layout_constraintEnd_toStartOf="@+id/guideline35"
+        app:layout_constraintStart_toStartOf="@+id/guideline34" />
+
+    <Button
+        android:id="@+id/btnCourseDetailSendNotification"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Pubblica Avviso"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/btnCourseDetailExams"
         app:layout_constraintEnd_toStartOf="@+id/guideline35"
         app:layout_constraintStart_toStartOf="@+id/guideline34" />
 

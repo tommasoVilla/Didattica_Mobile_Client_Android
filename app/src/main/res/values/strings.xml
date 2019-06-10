@@ -95,4 +95,8 @@
     <string name="tvNoMaterialToShowForCourse_text">Nessun file presente per il corso selezionato</string>
     <string name="notVisualizableElementByBrowser_message">Elemento non visualizzabile dal Browser</string>
     <string name="InsertValidMail_message">Inserisci una mail valida</string>
+    <string name="tvCourseNotificationHeader_text">Avviso per il corso di</string>
+    <string name="btnCourseNotificationSend_text">Pubblica</string>
+    <string name="courseNotificationEmptyMessage_message">Inserisci un messaggio da pubblicare</string>
+    <string name="courseNotificationConfirm_message">Avviso Pubblicato</string>
 </resources>

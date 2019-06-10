@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.CourseNotificationActivity"></activity>
         <activity android:name=".activity.CourseDetailActivity" />
         <activity android:name=".activity.FindCoursesActivity" />
         <activity android:name=".activity.HomeActivity" />
@@ -31,7 +32,7 @@
         <activity android:name=".activity.AddExamActivity" />
         <activity android:name=".activity.ExamsActivity" />
         <activity android:name=".activity.TeachingMaterialActivity" />
-        <activity android:name=".activity.CourseTeachingMaterialsActivity"></activity>
+        <activity android:name=".activity.CourseTeachingMaterialsActivity" />
     </application>
 
 </manifest>
