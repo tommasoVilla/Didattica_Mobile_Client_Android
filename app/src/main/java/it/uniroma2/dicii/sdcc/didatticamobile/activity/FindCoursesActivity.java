@@ -92,8 +92,6 @@ public class FindCoursesActivity extends AppCompatActivity {
                 CourseParcelable courseParcelable = new CourseParcelable(courseClicked);
                 Intent intent = new Intent(context, CourseDetailActivity.class);
                 intent.putExtra("course_to_show", courseParcelable);
-                // The current activity communicates to the following one the subscription status
-                intent.putExtra("subscription", "inactive");
                 startActivity(intent);
             }
         });

@@ -115,8 +115,7 @@ public class CourseDetailActivity extends AppCompatActivity {
             btnSendNotification.setVisibility(View.GONE);
         }
         // The button functionality depends on subscription status
-        String subscriptionStatus = getIntent().getStringExtra("subscription");
-        if (subscriptionStatus.equals("active")) {
+        if (CoursesActivity.getSubscribedCoursesId().contains(courseParcelable.getId())) {
             btnActionOnCourse.setText(R.string.btnCourseDetailUnsubscribe_text);
         } else {
             btnActionOnCourse.setText(R.string.btnCourseDetailSubscribe_text);

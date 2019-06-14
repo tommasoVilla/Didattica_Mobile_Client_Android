@@ -49,14 +49,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         initializeWidget();
-        //launchRefreshTokenTask();
-    }
-
-    //TODO eventualmente rimuovere
-    private void launchRefreshTokenTask() {
-        /* Launch the task responsible to refresh automatically the access token before it expired*/
-        RefreshTokenTask refreshTokenTask = new RefreshTokenTask(this);
-        refreshTokenTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     private void initializeWidget() {

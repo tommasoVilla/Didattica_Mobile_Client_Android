@@ -52,7 +52,6 @@ public class ExamsListAdapter extends ArrayAdapter {
         TextView tvSchedule = listItemView.findViewById(R.id.tvExamItemSchedule);
         TextView tvExpiration = listItemView.findViewById(R.id.tvExamItemExp);
         Exam exam = exams.get(examIndex);
-        //TODO RIMUOVERE STRINGHE
         tvCall.setText(exam.getCall() + "° Appello");
         tvSchedule.setText(exam.getDate() + " " + exam.getStartTime() + " Aula: " + exam.getRoom());
         tvExpiration.setText("Scadenza prenotazioni: " + exam.getExpirationDate());

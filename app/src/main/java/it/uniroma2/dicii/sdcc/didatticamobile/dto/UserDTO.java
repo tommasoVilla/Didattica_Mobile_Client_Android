@@ -1,6 +1,6 @@
-package it.uniroma2.dicii.sdcc.didatticamobile.model;
+package it.uniroma2.dicii.sdcc.didatticamobile.dto;
 
-// TODO trovargli un altro package in cui sistemarlo
+import it.uniroma2.dicii.sdcc.didatticamobile.model.User;
 
 /* An UserDTO is an object used to map the JSON returned from the backend service into an User object*/
 public class UserDTO {

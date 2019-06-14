@@ -16,7 +16,7 @@ import it.uniroma2.dicii.sdcc.didatticamobile.error.TemporaryUnavailableExceptio
 import it.uniroma2.dicii.sdcc.didatticamobile.error.UnexpectedServerResponseException;
 import it.uniroma2.dicii.sdcc.didatticamobile.error.UserDaoException;
 import it.uniroma2.dicii.sdcc.didatticamobile.model.User;
-import it.uniroma2.dicii.sdcc.didatticamobile.model.UserDTO;
+import it.uniroma2.dicii.sdcc.didatticamobile.dto.UserDTO;
 /*
  * An UserDaoREST object is a concrete implementation of UserDao interface. It provides method
  * to make requests to a persistence layer consisting in a remote REST service.

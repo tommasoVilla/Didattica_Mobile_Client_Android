@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.CoursesActivity;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.CourseDao;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.CourseDaoFactory;
 import it.uniroma2.dicii.sdcc.didatticamobile.error.ErrorHandler;
@@ -22,6 +23,7 @@ public class CourseSubscriptionTask extends AsyncTask<String, Void, Void> {
     private boolean subscribe; // true if the task has to subscribe the student, false otherwise
     private Activity courseDetailActivity;
     private Exception thrownException;
+    private String courseId;
 
     public CourseSubscriptionTask(boolean subscribe, Activity courseDetailActivity) {
         this.subscribe = subscribe;
@@ -55,6 +57,7 @@ public class CourseSubscriptionTask extends AsyncTask<String, Void, Void> {
     protected Void doInBackground(String... strings) {
         try {
             String courseId = strings[0];
+            this.courseId = courseId;
             String courseName = strings[1];
             String courseDepartment = strings[2];
             String courseYear = strings[3];
@@ -107,9 +110,11 @@ public class CourseSubscriptionTask extends AsyncTask<String, Void, Void> {
             if (subscribe) {
                 Toast.makeText(courseDetailActivity, R.string.courseDetailSubscribtionCompleted_text, Toast.LENGTH_SHORT).show();
                 ((Button)courseDetailActivity.findViewById(R.id.btnCourseDetailActionOnCourse)).setText(R.string.btnCourseDetailUnsubscribe_text);
+                CoursesActivity.getSubscribedCoursesId().add(courseId);
             } else {
                 Toast.makeText(courseDetailActivity, R.string.courseDetailUnsubscribtionCompleted_text, Toast.LENGTH_SHORT).show();
                 ((Button)courseDetailActivity.findViewById(R.id.btnCourseDetailActionOnCourse)).setText(R.string.btnCourseDetailSubscribe_text);
+                CoursesActivity.getSubscribedCoursesId().remove(courseId);
             }
         }
     }

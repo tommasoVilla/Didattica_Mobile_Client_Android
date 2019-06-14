@@ -29,7 +29,6 @@ public class ExamReservationDialog extends Dialog {
             switch(v.getId()) {
                 case R.id.btnDialogReserveExamReserve:
                     // Launch the task responsible for make the reservation request
-                    //TODO accedere in questo modo alla Outer class anche negli altri Event Listener
                     ReserveExamTask reserveExamTask = new ReserveExamTask(context, ExamReservationDialog.this);
                     reserveExamTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, exam.getId());
                     break;

@@ -12,6 +12,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
 import it.uniroma2.dicii.sdcc.didatticamobile.model.Course;
 import it.uniroma2.dicii.sdcc.didatticamobile.parcelable.CourseParcelable;
@@ -20,6 +23,9 @@ import it.uniroma2.dicii.sdcc.didatticamobile.task.ListCoursesTask;
 public class CoursesActivity extends AppCompatActivity {
 
     private Context context;
+
+    // stores the identifiers of the course to which the user is subscribed or held by the teacher
+    private static List<String> subscribedCoursesId = new ArrayList<>();
 
     private class EventListener implements  View.OnClickListener {
 
@@ -97,8 +103,6 @@ public class CoursesActivity extends AppCompatActivity {
                 CourseParcelable courseParcelable = new CourseParcelable(courseClicked);
                 Intent intent = new Intent(context, CourseDetailActivity.class);
                 intent.putExtra("course_to_show", courseParcelable);
-                // the current activity communicates to the following one the subscription status
-                intent.putExtra("subscription", "active");
                 startActivity(intent);
             }
         });
@@ -108,5 +112,13 @@ public class CoursesActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
+    }
+
+    public static List<String> getSubscribedCoursesId() {
+        return subscribedCoursesId;
+    }
+
+    public static void setSubscribedCoursesId(List<String> subscribedCoursesId) {
+        CoursesActivity.subscribedCoursesId = subscribedCoursesId;
     }
 }

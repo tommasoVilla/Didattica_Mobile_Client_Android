@@ -7,9 +7,11 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.CoursesActivity;
 import it.uniroma2.dicii.sdcc.didatticamobile.activity.InternetConnectionStatus;
 import it.uniroma2.dicii.sdcc.didatticamobile.adapter.CoursesListAdapter;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.CourseDao;
@@ -97,6 +99,12 @@ public class ListCoursesTask extends AsyncTask<Void, Void, Void> {
                 CoursesListAdapter coursesListAdapter = new CoursesListAdapter(coursesActivity, R.layout.course_list_item, courses);
                 lvYourCourses.setAdapter(coursesListAdapter);
                 coursesActivity.findViewById(R.id.lvYourCourses).setVisibility(View.VISIBLE);
+                // Finally, the list of courses is stored in CoursesActivity class
+                List<String> subscribedCoursesId = new ArrayList<>();
+                for (Course c : courses) {
+                    subscribedCoursesId.add(c.getId());
+                }
+                CoursesActivity.setSubscribedCoursesId(subscribedCoursesId);
             }
         }
     }
