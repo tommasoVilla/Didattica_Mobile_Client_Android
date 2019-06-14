@@ -32,7 +32,8 @@ public interface CourseDao {
     * course with the provided id.
     * The operation can succeed only with a valid token.
     * */
-    void addCourseToStudent(String courseId, String studentUsername, String token) throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException, ExistentSubscriptionException;
+    void addCourseToStudent(String courseId, String courseName, String courseDepartment, String courseYear, String studentUsername, String token)
+            throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException, ExistentSubscriptionException;
 
     /*
     * findBySubscribedStudent retrieves the courses which the user with the given username is subscribed to.
@@ -44,7 +45,7 @@ public interface CourseDao {
     * removeStudentFromCourse unsubscribe the given student from the given course.
     * The operation can succeed only providing a valid token.
     * */
-    void removeStudentFromCourse(String courseId, String studentUsername, String token) throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException;
+    void removeStudentFromCourse(String courseId, String courseName, String courseDepartment, String courseYear, String studentUsername, String token) throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException;
 
 
     void sendCourseNotification(String courseId, String notificationMessage, String token) throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException;

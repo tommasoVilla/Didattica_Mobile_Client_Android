@@ -68,6 +68,38 @@ public class ConnectionHelper {
         return connection;
     }
 
+    public static HttpURLConnection sendPutWithToken(String query, String token, String body) throws IOException {
+        HttpURLConnection connection = createConnection(query);
+        connection.setRequestMethod("PUT");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Accept", "application/json");
+        if (token != null){
+            connection.setRequestProperty("Cookie", "token=" + token);
+        }
+        connection.setDoOutput(true);
+        try(OutputStream outputStream = connection.getOutputStream()) {
+            byte[] input = body.getBytes(StandardCharsets.UTF_8);
+            outputStream.write(input, 0, input.length);
+        }
+        return connection;
+    }
+
+    public static HttpURLConnection sendDeleteWithToken(String query, String token, String body) throws IOException {
+        HttpURLConnection connection = createConnection(query);
+        connection.setRequestMethod("DELETE");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Accept", "application/json");
+        if (token != null){
+            connection.setRequestProperty("Cookie", "token=" + token);
+        }
+        connection.setDoOutput(true);
+        try(OutputStream outputStream = connection.getOutputStream()) {
+            byte[] input = body.getBytes(StandardCharsets.UTF_8);
+            outputStream.write(input, 0, input.length);
+        }
+        return connection;
+    }
+
     public static HttpURLConnection sendPutWithToken(String query, String token) throws IOException {
         HttpURLConnection connection = createConnection(query);
         connection.setRequestMethod("PUT");

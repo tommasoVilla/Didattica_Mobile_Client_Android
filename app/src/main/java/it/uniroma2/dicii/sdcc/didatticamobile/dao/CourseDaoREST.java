@@ -142,7 +142,9 @@ public class CourseDaoREST implements CourseDao {
     }
 
     @Override
-    public void addCourseToStudent(String courseId, String studentUsername, String token) throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException, ExistentSubscriptionException {
+    public void addCourseToStudent(String courseId, String courseName, String courseDepartment,
+                                   String courseYear, String studentUsername, String token)
+            throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException, ExistentSubscriptionException {
         try {
             AppConfiguration appConfiguration = AppConfiguration.getInstance();
 
@@ -152,12 +154,18 @@ public class CourseDaoREST implements CourseDao {
             stringBuilder.append(appConfiguration.readProperty("application_url"));
             stringBuilder.append("students/");
             stringBuilder.append(studentUsername);
-            stringBuilder.append("/courses/");
-            stringBuilder.append(courseId);
             String query = stringBuilder.toString();
 
+            // Build the body of put request
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("id", courseId);
+            jsonObject.put("name", courseName);
+            jsonObject.put("department", courseDepartment);
+            jsonObject.put("year", courseYear);
+            String body = jsonObject.toString();
+
             // Make the PUT request to the server
-            HttpURLConnection connection = ConnectionHelper.sendPutWithToken(query, token);
+            HttpURLConnection connection = ConnectionHelper.sendPutWithToken(query, token, body);
 
             // Checking the response code. Upon failure, an ad hoc exception is thrown
             int responseCode = connection.getResponseCode();
@@ -181,7 +189,7 @@ public class CourseDaoREST implements CourseDao {
                 default:
                     throw new UnexpectedServerResponseException();
             }
-        } catch (ParserException | IOException | UnexpectedServerResponseException e) {
+        } catch (ParserException | IOException | UnexpectedServerResponseException | JSONException e) {
             throw new CourseDaoException(e.getMessage(), e.getCause());
         }
     }
@@ -233,7 +241,8 @@ public class CourseDaoREST implements CourseDao {
     }
 
     @Override
-    public void removeStudentFromCourse(String courseId, String studentUsername, String token)
+    public void removeStudentFromCourse(String courseId, String courseName, String courseDepartment,
+                                        String courseYear, String studentUsername, String token)
             throws ExpiredTokenException, TemporaryUnavailableException, CourseDaoException {
         try {
             AppConfiguration appConfiguration = AppConfiguration.getInstance();
@@ -244,12 +253,18 @@ public class CourseDaoREST implements CourseDao {
             stringBuilder.append(appConfiguration.readProperty("application_url"));
             stringBuilder.append("students/");
             stringBuilder.append(studentUsername);
-            stringBuilder.append("/courses/");
-            stringBuilder.append(courseId);
             String query = stringBuilder.toString();
 
+            // Build the body of put request
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("id", courseId);
+            jsonObject.put("name", courseName);
+            jsonObject.put("department", courseDepartment);
+            jsonObject.put("year", courseYear);
+            String body = jsonObject.toString();
+
             // Make the DELETE request to the server
-            HttpURLConnection connection = ConnectionHelper.sendDeleteWithToken(query, token);
+            HttpURLConnection connection = ConnectionHelper.sendDeleteWithToken(query, token, body);
 
             // Checking the response code. Upon failure, an ad hoc exception is thrown
             int responseCode = connection.getResponseCode();
@@ -271,7 +286,7 @@ public class CourseDaoREST implements CourseDao {
                 default:
                     throw new UnexpectedServerResponseException();
             }
-        } catch (ParserException | IOException | UnexpectedServerResponseException e) {
+        } catch (ParserException | IOException | UnexpectedServerResponseException | JSONException e) {
             throw new CourseDaoException(e.getMessage(), e.getCause());
         }
     }

@@ -55,6 +55,9 @@ public class CourseSubscriptionTask extends AsyncTask<String, Void, Void> {
     protected Void doInBackground(String... strings) {
         try {
             String courseId = strings[0];
+            String courseName = strings[1];
+            String courseDepartment = strings[2];
+            String courseYear = strings[3];
             SharedPreferences sharedPreferences = courseDetailActivity.getSharedPreferences("shared_preference", Context.MODE_PRIVATE);
             String studentUsername = sharedPreferences.getString("user_username", "defaultUsername");
             String token = sharedPreferences.getString("token", "defaultToken"); // for authenticating the request
@@ -62,9 +65,11 @@ public class CourseSubscriptionTask extends AsyncTask<String, Void, Void> {
             CourseDaoFactory courseDaoFactory = CourseDaoFactory.getInstance();
             CourseDao courseDao = courseDaoFactory.createCourseDao();
             if (subscribe) {
-                courseDao.addCourseToStudent(courseId, studentUsername, token);
+                courseDao.addCourseToStudent(courseId, courseName, courseDepartment,
+                        courseYear, studentUsername, token);
             } else {
-                courseDao.removeStudentFromCourse(courseId, studentUsername, token);
+                courseDao.removeStudentFromCourse(courseId, courseName, courseDepartment,
+                        courseYear, studentUsername, token);
             }
             return null;
         } catch (Exception e) {

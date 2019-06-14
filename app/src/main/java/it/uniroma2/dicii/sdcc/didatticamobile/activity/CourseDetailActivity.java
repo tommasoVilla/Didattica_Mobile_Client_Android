@@ -34,7 +34,9 @@ public class CourseDetailActivity extends AppCompatActivity {
                     } else {
                         courseSubscriptionTask = new CourseSubscriptionTask(true, activity);
                     }
-                    courseSubscriptionTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, courseParcelable.getId());
+                    courseSubscriptionTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
+                            courseParcelable.getId(), courseParcelable.getName(),
+                            courseParcelable.getDepartment(), courseParcelable.getYear());
                     break;
                 case R.id.btnCourseDetailExams:
                     viewExams();
