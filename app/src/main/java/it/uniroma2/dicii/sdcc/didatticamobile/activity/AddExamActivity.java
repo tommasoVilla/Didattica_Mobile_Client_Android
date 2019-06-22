@@ -2,6 +2,7 @@ package it.uniroma2.dicii.sdcc.didatticamobile.activity;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.KeyboardHider;
 import it.uniroma2.dicii.sdcc.didatticamobile.task.AddExamTask;
 
 import static java.util.Calendar.YEAR;
@@ -33,6 +35,7 @@ public class AddExamActivity extends AppCompatActivity {
     private Button btnAddExam;
     private EditText etRoom;
     private RadioGroup rgCall;
+    private ConstraintLayout layout;
 
     private class EventListener implements  View.OnClickListener {
 
@@ -133,6 +136,9 @@ public class AddExamActivity extends AppCompatActivity {
                 case R.id.rbCall6:
                     call = 6;
                     break;
+                case R.id.addExamLayout:
+                    KeyboardHider.hideKeyboard(context, layout);
+                    break;
                 default:
                     break;
             }
@@ -218,5 +224,8 @@ public class AddExamActivity extends AppCompatActivity {
         //Initialize room's edit text and call's radiogroup
         etRoom = findViewById(R.id.etAddExamRoom);
         rgCall = findViewById(R.id.rgCall);
+
+        layout = findViewById(R.id.addExamLayout);
+        layout.setOnClickListener(eventListener);
     }
 }

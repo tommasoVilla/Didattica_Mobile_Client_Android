@@ -2,6 +2,7 @@ package it.uniroma2.dicii.sdcc.didatticamobile.activity;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.KeyboardHider;
 import it.uniroma2.dicii.sdcc.didatticamobile.task.RegistrationTask;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private EditText etMail;
+    private ConstraintLayout layout;
 
     private class EventListener implements View.OnClickListener{
 
@@ -32,6 +35,9 @@ public class RegistrationActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.btnRegistrationRegistration:
                     doRegistration();
+                    break;
+                case R.id.registrationLayout:
+                    KeyboardHider.hideKeyboard(context, layout);
                     break;
                 default:
                     break;
@@ -109,9 +115,11 @@ public class RegistrationActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPasswordRegistration);
         etMail = findViewById(R.id.etMailRegistration);
         Button btnRegistration = findViewById(R.id.btnRegistrationRegistration);
+        layout = findViewById(R.id.registrationLayout);
         
         EventListener eventListener = new EventListener(this);
         btnRegistration.setOnClickListener(eventListener);
+        layout.setOnClickListener(eventListener);
     }
 
 

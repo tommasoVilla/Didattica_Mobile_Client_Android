@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.KeyboardHider;
 import it.uniroma2.dicii.sdcc.didatticamobile.model.Course;
 import it.uniroma2.dicii.sdcc.didatticamobile.parcelable.CourseParcelable;
 import it.uniroma2.dicii.sdcc.didatticamobile.task.FindCoursesTask;
@@ -24,6 +26,7 @@ public class FindCoursesActivity extends AppCompatActivity {
     private Spinner cbCourseSearchType;
     private EditText etFindCourse;
     private Context context;
+    private ConstraintLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,9 @@ public class FindCoursesActivity extends AppCompatActivity {
                     String searchPattern = etFindCourse.getText().toString();
                     findCoursesTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, searchCriterion, searchPattern);
 
+                    break;
+                case R.id.findCoursesLayout:
+                    KeyboardHider.hideKeyboard(context, layout);
                     break;
                 default:
                     break;
@@ -95,6 +101,9 @@ public class FindCoursesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        layout = findViewById(R.id.findCoursesLayout);
+        layout.setOnClickListener(eventListener);
 
     }
 }

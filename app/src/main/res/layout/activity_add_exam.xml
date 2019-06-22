@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addExamLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_orange_light"
@@ -39,9 +40,9 @@
         android:id="@+id/tvInsertExamInfos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/tvInsertExamInfos_text"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
@@ -53,9 +54,9 @@
         android:id="@+id/tvCall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/tvCall_text"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
@@ -67,12 +68,12 @@
         android:id="@+id/rgCall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
-        app:layout_constraintTop_toBottomOf="@+id/tvCall" >
+        app:layout_constraintTop_toBottomOf="@+id/tvCall">
 
         <RadioButton
             android:id="@+id/rbCall1"
@@ -92,8 +93,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="II"
             android:buttonTint="@color/colorAccent"
+            android:hint="II"
             android:textColorHighlight="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textColorLink="@color/colorAccent" />
@@ -103,8 +104,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="III"
             android:buttonTint="@color/colorAccent"
+            android:hint="III"
             android:textColorHighlight="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textColorLink="@color/colorAccent" />
@@ -114,8 +115,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="IV"
             android:buttonTint="@color/colorAccent"
+            android:hint="IV"
             android:textColorHighlight="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textColorLink="@color/colorAccent" />
@@ -125,8 +126,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="V"
             android:buttonTint="@color/colorAccent"
+            android:hint="V"
             android:textColorHighlight="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textColorLink="@color/colorAccent" />
@@ -136,8 +137,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="VI"
             android:buttonTint="@color/colorAccent"
+            android:hint="VI"
             android:textColorHighlight="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textColorLink="@color/colorAccent" />
@@ -147,8 +148,8 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
@@ -185,9 +186,9 @@
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
@@ -215,9 +216,9 @@
         android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
@@ -264,9 +265,9 @@
         android:id="@+id/linearLayout6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
@@ -278,7 +279,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/colorAccent"
-            android:popupBackground="@color/colorPrimary"/>
+            android:popupBackground="@color/colorPrimary" />
 
         <Spinner
             android:id="@+id/cbAddExamExpMonth"
@@ -286,7 +287,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/colorAccent"
-            android:popupBackground="@color/colorPrimary"/>
+            android:popupBackground="@color/colorPrimary" />
 
         <Spinner
             android:id="@+id/cbAddExamExpYear"
@@ -294,17 +295,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:backgroundTint="@color/colorAccent"
-            android:popupBackground="@color/colorPrimary"/>
+            android:popupBackground="@color/colorPrimary" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnConfirmAddExam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="@string/btnAddCourseConfirm_message"
         android:textColor="@color/colorAccent"
@@ -320,9 +321,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="18dp"
         android:text="@string/tvAddExamDate_text"
         android:textColor="@color/colorAccent"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
         app:layout_constraintTop_toBottomOf="@+id/rgCall" />
 
@@ -331,10 +332,10 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guideline41"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"

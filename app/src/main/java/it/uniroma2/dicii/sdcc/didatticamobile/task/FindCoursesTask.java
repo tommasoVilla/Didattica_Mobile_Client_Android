@@ -6,14 +6,12 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.List;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
-import it.uniroma2.dicii.sdcc.didatticamobile.activity.InternetConnectionStatus;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.InternetConnectionStatus;
 import it.uniroma2.dicii.sdcc.didatticamobile.adapter.CoursesListAdapter;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.CourseDao;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.CourseDaoFactory;

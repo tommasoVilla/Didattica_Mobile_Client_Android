@@ -3,7 +3,7 @@ package it.uniroma2.dicii.sdcc.didatticamobile.task;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import it.uniroma2.dicii.sdcc.didatticamobile.activity.InternetConnectionStatus;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.InternetConnectionStatus;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.UserDao;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.UserDaoFactory;
 import it.uniroma2.dicii.sdcc.didatticamobile.error.ErrorHandler;

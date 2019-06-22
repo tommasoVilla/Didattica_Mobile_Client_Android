@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
-import it.uniroma2.dicii.sdcc.didatticamobile.activity.InternetConnectionStatus;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.InternetConnectionStatus;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.TeachingMaterialDao;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.TeachingMaterialDaoFactory;
 import it.uniroma2.dicii.sdcc.didatticamobile.error.ErrorHandler;

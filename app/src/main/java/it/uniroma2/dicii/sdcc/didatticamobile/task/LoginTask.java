@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
 import it.uniroma2.dicii.sdcc.didatticamobile.activity.HomeActivity;
-import it.uniroma2.dicii.sdcc.didatticamobile.activity.InternetConnectionStatus;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.InternetConnectionStatus;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.UserDao;
 import it.uniroma2.dicii.sdcc.didatticamobile.dao.UserDaoFactory;
 import it.uniroma2.dicii.sdcc.didatticamobile.error.ErrorHandler;

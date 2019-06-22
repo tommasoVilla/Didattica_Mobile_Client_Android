@@ -1,6 +1,7 @@
 package it.uniroma2.dicii.sdcc.didatticamobile.activity;
 
 import android.os.AsyncTask;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.KeyboardHider;
 import it.uniroma2.dicii.sdcc.didatticamobile.task.SendCourseNotificationTask;
 
 public class CourseNotificationActivity extends AppCompatActivity {
 
     private EditText etMessage;
+    private ConstraintLayout layout;
 
     private class EventListener implements View.OnClickListener {
 
@@ -32,6 +35,8 @@ public class CourseNotificationActivity extends AppCompatActivity {
                     SendCourseNotificationTask sendCourseNotificationTask = new SendCourseNotificationTask(CourseNotificationActivity.this);
                     sendCourseNotificationTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, courseId, message);
                     break;
+                case R.id.courseNotificationLayout:
+                    KeyboardHider.hideKeyboard(CourseNotificationActivity.this, layout);
                 default:
             }
         }
@@ -49,6 +54,9 @@ public class CourseNotificationActivity extends AppCompatActivity {
         tvCourse.setText(getIntent().getStringExtra("course_name"));
         etMessage = findViewById(R.id.etCourseNotificationMessage);
         Button btnSendNotification = findViewById(R.id.btnCourseNotificationSend);
-        btnSendNotification.setOnClickListener(new EventListener());
+        layout = findViewById(R.id.courseNotificationLayout);
+        EventListener eventListener = new EventListener();
+        layout.setOnClickListener(eventListener);
+        btnSendNotification.setOnClickListener(eventListener);
     }
 }

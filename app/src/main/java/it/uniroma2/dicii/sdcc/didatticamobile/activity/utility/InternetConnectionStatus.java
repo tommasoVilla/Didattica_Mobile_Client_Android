@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.sdcc.didatticamobile.activity;
+package it.uniroma2.dicii.sdcc.didatticamobile.activity.utility;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

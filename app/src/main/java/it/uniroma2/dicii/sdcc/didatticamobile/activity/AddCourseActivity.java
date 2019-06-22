@@ -2,6 +2,7 @@ package it.uniroma2.dicii.sdcc.didatticamobile.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,12 +17,14 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.KeyboardHider;
 
 import static java.util.Calendar.*;
 
 public class AddCourseActivity extends AppCompatActivity {
 
     private Button btnAddCourseSchedule;
+    private ConstraintLayout layout;
     private EditText etCourseName;
     private EditText etCourseDepartment;
     private Spinner cbYear;
@@ -41,6 +44,9 @@ public class AddCourseActivity extends AppCompatActivity {
                 case R.id.btnAddCourseSchedule:
                     // Go on inserting other information for course creation
                     continueCourseCreation();
+                    break;
+                case R.id.addCourseLayout:
+                    KeyboardHider.hideKeyboard(context, layout);
                     break;
                 default:
                     break;
@@ -113,11 +119,13 @@ public class AddCourseActivity extends AppCompatActivity {
         cbYear.setAdapter(adapter);
 
         //Initialize other widget
+        layout = findViewById(R.id.addCourseLayout);
         rgSemester = findViewById(R.id.rgSemester);
         etCourseName = findViewById(R.id.etCourseName);
         etCourseDepartment = findViewById(R.id.erCourseDepartment);
         btnAddCourseSchedule = findViewById(R.id.btnAddCourseSchedule);
         EventListener eventListener = new EventListener(this);
         btnAddCourseSchedule.setOnClickListener(eventListener);
+        layout.setOnClickListener(eventListener);
     }
 }

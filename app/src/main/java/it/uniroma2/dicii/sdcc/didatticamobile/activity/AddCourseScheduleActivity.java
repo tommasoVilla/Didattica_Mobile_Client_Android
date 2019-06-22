@@ -2,6 +2,7 @@ package it.uniroma2.dicii.sdcc.didatticamobile.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.KeyboardHider;
 
 public class AddCourseScheduleActivity extends AppCompatActivity {
 
@@ -30,6 +32,7 @@ public class AddCourseScheduleActivity extends AppCompatActivity {
     private EditText etRoom1;
     private EditText etRoom2;
     private EditText etRoom3;
+    private ConstraintLayout layout;
 
     private class EventListener implements  View.OnClickListener {
 
@@ -45,6 +48,9 @@ public class AddCourseScheduleActivity extends AppCompatActivity {
                 case R.id.btnAddCourseDescription:
                     // Go on inserting other information for course creation
                     continueCourseCreation();
+                    break;
+                case R.id.addCourseScheduleLayout:
+                    KeyboardHider.hideKeyboard(context, layout);
                     break;
                 default:
                     break;
@@ -147,6 +153,9 @@ public class AddCourseScheduleActivity extends AppCompatActivity {
         etRoom1 = findViewById(R.id.etRoom1);
         etRoom2 = findViewById(R.id.etRoom2);
         etRoom3 = findViewById(R.id.etRoom3);
+
+        layout = findViewById(R.id.addCourseScheduleLayout);
+        layout.setOnClickListener(eventListener);
 
     }
 }

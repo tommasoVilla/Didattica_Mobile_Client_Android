@@ -1,9 +1,9 @@
 package it.uniroma2.dicii.sdcc.didatticamobile.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import it.uniroma2.dicii.sdcc.didatticamobile.R;
+import it.uniroma2.dicii.sdcc.didatticamobile.activity.utility.KeyboardHider;
 import it.uniroma2.dicii.sdcc.didatticamobile.task.ConfigurationTask;
 import it.uniroma2.dicii.sdcc.didatticamobile.task.LoginTask;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin;
     private EditText etUsername;
     private EditText etPassword;
+    private ConstraintLayout layout;
 
 
     private class EventListener implements  View.OnClickListener {
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btnLoginMain:
                     doLogin();
+                    break;
+                case R.id.mainLayout:
+                    KeyboardHider.hideKeyboard(context, layout);
                     break;
                 default:
                     break;
@@ -105,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
         EventListener eventListener = new EventListener(this);
         btnRegistration.setOnClickListener(eventListener);
         btnLogin.setOnClickListener(eventListener);
+        layout = findViewById(R.id.mainLayout);
+        layout.setOnClickListener(eventListener);
 
     }
 }
