@@ -12,27 +12,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CourseNotificationActivity"></activity>
-        <activity android:name=".activity.CourseDetailActivity" />
-        <activity android:name=".activity.FindCoursesActivity" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.RegistrationCompletedActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.CourseNotificationActivity"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity android:name=".activity.CourseDetailActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.FindCoursesActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.HomeActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.RegistrationCompletedActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.MainActivity"     android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RegistrationActivity" />
-        <activity android:name=".activity.CoursesActivity" />
-        <activity android:name=".activity.AddCourseActivity" />
-        <activity android:name=".activity.AddCourseScheduleActivity" />
-        <activity android:name=".activity.AddCourseDescriptionActivity" />
-        <activity android:name=".activity.AddExamActivity" />
-        <activity android:name=".activity.ExamsActivity" />
-        <activity android:name=".activity.TeachingMaterialActivity" />
-        <activity android:name=".activity.CourseTeachingMaterialsActivity" />
+        <activity android:name=".activity.RegistrationActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.CoursesActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.AddCourseActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.AddCourseScheduleActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.AddCourseDescriptionActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.AddExamActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.ExamsActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.TeachingMaterialActivity"     android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.CourseTeachingMaterialsActivity"     android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>
